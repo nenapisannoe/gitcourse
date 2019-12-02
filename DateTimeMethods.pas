@@ -19,7 +19,15 @@ begin
         result:= 28;
   end;
 end;
-function LaterInDay(p1, p2: DateTime): DateTime := p1;
+function LaterInDay(p1, p2: DateTime): DateTime;
+begin
+  var q1:= p1.Hour*3600 + p1.Minute*60 + p1.Second;
+  var q2:= p2.Hour*3600 + p2.Minute*60 + p2.Second;
+  if q1>q2 then
+    result:= p1;
+  wlse
+  result:=p2;
+end;
 function LaterInYear(p1, p2: DateTime): DateTime := p1;
 function DaysInYear(year: integer): integer := 0;
 function DaysInYearRange(year1, year2: integer): integer := 0;
